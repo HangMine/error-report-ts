@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@4dst-saas/rules-preset@^1.0.0":
-  version "1.0.0"
-  resolved "http://192.168.20.9:8081/repository/npm-hosted/@4dst-saas/rules-preset/-/rules-preset-1.0.0.tgz#14fbd61cc28f03bf61f4838a36812d50ecab0a1b"
-  integrity sha512-iQlEcpwUaPjzAF4WHYKIIQFNO5m0LTkooow89x0VwMvU9pOEP5SX7DEEyZ83PacEfOclOtUX/GPEt/l34Y+mzQ==
+"@4dst-saas/rules-preset@^1.0.1":
+  version "1.0.1"
+  resolved "http://192.168.20.9:8081/repository/npm-hosted/@4dst-saas/rules-preset/-/rules-preset-1.0.1.tgz#ae6e0fbc03a2a0ab8a583c11286a596a52e53b0a"
+  integrity sha512-fDKSuv21adHlCncZ+Bn1ZjawsGqBDvff+9NOvNij45diMzq8TUk2DE0g+DsNI7hze/57kUsBv2wZ71aUt5FJyQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.8.1"
     "@typescript-eslint/parser" "^4.8.1"

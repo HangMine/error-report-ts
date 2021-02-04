@@ -25,7 +25,7 @@
   "author": "Harvey Woo",
   "license": "ISC",
   "devDependencies": {
-    "@4dst-saas/rules-preset": "^1.0.0",
+    "@4dst-saas/rules-preset": "^1.0.1",
     "@babel/cli": "^7.10.3",
     "@babel/core": "^7.10.3",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
