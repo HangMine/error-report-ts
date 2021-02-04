@@ -1,0 +1,8 @@
+dist
+node_modules
+public
+rules
+src/assets
+packages
+docs
+doc

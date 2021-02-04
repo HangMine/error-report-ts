@@ -1,0 +1,48 @@
+{
+  "name": "@4dst-saas/browser-utils-seed",
+  "version": "0.0.1",
+  "description": "基于ts的工具库种子",
+  "main": "dist/index.js",
+  "type": "commonjs",
+  "sideEffects": false,
+  "scripts": {
+    "doc": "typedoc --options typedoc.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "yarn clear && yarn build:ts && yarn build:babel && yarn type",
+    "clear": "rimraf dist && rimraf .cache/tsc",
+    "build:ts": "tsc --outDir .cache/tsc",
+    "type": "cpx \"src/**/*.d.ts\" dist && cpx \".cache/tsc/**/*.d.ts\" dist",
+    "build:babel": "babel .cache/tsc --out-dir dist && babel src --out-dir dist",
+    "pub": "npm version patch && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://192.168.19.2/front-end/public-modules-and-utils.git"
+  },
+  "keywords": [
+    "utils"
+  ],
+  "author": "Harvey Woo",
+  "license": "ISC",
+  "devDependencies": {
+    "@4dst-saas/rules-preset": "^1.0.0",
+    "@babel/cli": "^7.10.3",
+    "@babel/core": "^7.10.3",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.10.3",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.10.3",
+    "@types/crypto-js": "^3.1.47",
+    "@types/webpack-env": "^1.15.2",
+    "babel-eslint": "^10.1.0",
+    "copy": "^0.3.2",
+    "cpx": "^1.5.0",
+    "eslint": "^7.19.0",
+    "rimraf": "^3.0.2",
+    "typedoc": "^0.17.8",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.11.2"
+  }
+}

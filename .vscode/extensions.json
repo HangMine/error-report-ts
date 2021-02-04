@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "vtrois.gitmoji-vscode",
+    "redhat.vscode-yaml",
+    "mrmlnc.vscode-json5"
+  ]
+}
