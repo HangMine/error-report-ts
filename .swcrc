@@ -1,0 +1,18 @@
+{
+  "exclude": [
+    ".*.ts$"
+  ],
+  "jsc": {
+    "externalHelpers": true,
+    "parser": {
+      "syntax": "ecmascript"
+    }
+  },
+  "module": {
+    "type": "commonjs"
+  },
+  "env": {
+    "coreJs": 3,
+    "mode": "usage"
+  }
+}

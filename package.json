@@ -8,12 +8,13 @@
   "scripts": {
     "doc": "typedoc --options typedoc.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "yarn clear && yarn build:ts && yarn build:babel && yarn type",
+    "build-with-babel": "yarn clear && yarn build:ts && yarn build:babel && yarn type",
+    "build": "yarn clear && yarn build:ts && yarn build:swc && yarn type",
     "clear": "rimraf dist && rimraf .cache/tsc",
-    "build:ts": "tsc --outDir .cache/tsc",
     "type": "cpx \"src/**/*.d.ts\" dist && cpx \".cache/tsc/**/*.d.ts\" dist",
+    "build:ts": "tsc --outDir .cache/tsc",
     "build:babel": "babel .cache/tsc --out-dir dist && babel src --out-dir dist",
-    "pub": "npm version patch && npm publish"
+    "build:swc": "swc .cache/tsc -d dist && swc src --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,8 @@
     "@babel/plugin-proposal-optional-chaining": "^7.10.3",
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.10.3",
+    "@swc/cli": "^0.1.34",
+    "@swc/core": "^1.2.47",
     "@types/crypto-js": "^3.1.47",
     "@types/webpack-env": "^1.15.2",
     "babel-eslint": "^10.1.0",
