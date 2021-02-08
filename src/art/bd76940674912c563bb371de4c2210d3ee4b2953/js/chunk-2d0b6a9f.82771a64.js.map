@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/views/material-mall/components/Sidebar.ts"],"names":[],"mappings":"kHAAA,uBAEe","file":"js/chunk-2d0b6a9f.82771a64.js","sourcesContent":["import Sidebar from '@/views/file-list/components/Sidebar.vue';\n\nexport default Sidebar;\n"],"sourceRoot":""}
