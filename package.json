@@ -8,8 +8,8 @@
   "scripts": {
     "doc": "typedoc --options typedoc.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-with-babel": "yarn clear && yarn build:ts && yarn build:babel && yarn type",
-    "build": "yarn clear && yarn build:ts && yarn build:swc && yarn type",
+    "build": "yarn clear && yarn build:ts && yarn build:babel && yarn type",
+    "build-with-swc": "yarn clear && yarn build:ts && yarn build:swc && yarn type",
     "clear": "rimraf dist && rimraf .cache/tsc",
     "type": "cpx \"src/**/*.d.ts\" dist && cpx \".cache/tsc/**/*.d.ts\" dist",
     "build:ts": "tsc --outDir .cache/tsc",
@@ -47,6 +47,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
-    "@types/node": "^14.14.25"
+    "@swc/helpers": "^0.2.4",
+    "@types/node": "^14.14.25",
+    "core-js": "^3.8.3",
+    "ts-node": "^9.1.1"
   }
 }

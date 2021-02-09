@@ -15,7 +15,12 @@ export interface ServerLog {
   ref: string,
   file: string,
   name: string,
-  position: string
+  position: string,
+  user: {
+    id: string,
+    account: string
+  },
+  url: string
 }
 
 export type ServerLogs = ServerLog[];

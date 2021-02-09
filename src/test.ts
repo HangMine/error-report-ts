@@ -18,8 +18,10 @@ const params = [{
   file: 'packages/button/src/button.vue',
   name: 'ReferenceError',
   position: 'vue: v-on handler',
+  url: 'http://sit.4dshoetech.local/test/error',
+  user: { id: '1349564289763741698', account: 'zhenhf@163.com' },
 }];
-const { stdout, stderr } = spawnSync('node', ['get-stack-source', JSON.stringify(params), '/Users/Administrator/Desktop/error-report'], { encoding: 'utf-8' });
+const { stdout, stderr } = spawnSync('node', ['dist/get-stack-source', JSON.stringify(params), '/Users/Administrator/Desktop/error-report-ts'], { encoding: 'utf-8' });
 
 console.log('---------stdout---------');
 console.log(stdout);

@@ -61,7 +61,8 @@ export const getSourceInfos = async (params: { stack: string, project: Project, 
     const {
       file, line, column, fileName,
     } = item;
-    if (!line || !column) continue;
+
+    if (line === undefined || column === undefined) continue;
     // 排除node_modules的堆栈：chunk-vendors可能包含非node_modules的公共模块,需检查vue-cli3的webpack配置
     // 解析出来的item可能出现没有fileName的情况：比如 at new Promise (<anonymous>) ，通过fileName忽略这种情况
     // if (file.includes('chunk-vendors') || !fileName) continue;
@@ -91,6 +92,7 @@ export const getSourceInfos = async (params: { stack: string, project: Project, 
         所以现在采用优先通过chunk-vendors过滤，再使用node_modules二次过滤
         */
     // if (sourceInfo.source.includes('node_modules')) continue;
+
 
     if (!sourceInfo.source) continue;
 
