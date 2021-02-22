@@ -1,14 +1,13 @@
 
 import https from 'https';
 import path from 'path';
-import fs from 'fs';
+import { writeFile } from 'fs/promises';
 import axios from 'axios';
 import { getSourceInfos, SourceInfo } from '../utils/source';
 import {
   Env, Obj, Project, ServerLog, ServerLogs,
-} from '../typings';
+} from 'src/typings';
 
-const { writeFile } = fs.promises;
 
 const getGitProjectName = (project: Project) => {
   const projectMap = {

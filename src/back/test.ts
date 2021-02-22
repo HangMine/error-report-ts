@@ -21,7 +21,7 @@ const params = [{
   url: 'http://sit.4dshoetech.local/test/error',
   user: { id: '1349564289763741698', account: 'zhenhf@163.com' },
 }];
-const { stdout, stderr } = spawnSync('node', ['get-stack-source', JSON.stringify(params), '/Users/Administrator/Desktop/error-report-ts/src'], { encoding: 'utf-8', cwd: __dirname });
+const { stdout, stderr } = spawnSync('node', ['get-stack-source', JSON.stringify(params), '/Users/Administrator/Desktop/error-report-ts'], { encoding: 'utf-8', cwd: __dirname });
 
 console.log('---------stdout---------');
 console.log(stdout);

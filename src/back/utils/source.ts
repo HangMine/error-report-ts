@@ -5,8 +5,8 @@ import { resolve, join, sep } from 'path';
 import axios from 'axios';
 import Stacktracey from 'stacktracey';
 import { NullableMappedPosition, SourceMapConsumer } from 'source-map';
-import { Project } from '../typings';
 import { getPackageInfo, getPackageVersion } from './parse-yarn-lock';
+import { Project } from 'src/typings';
 
 export interface SourceInfo extends NullableMappedPosition {
   stackLine?: string,
@@ -50,7 +50,7 @@ const getMapPath = (params: { fileName: string, basePath: string, project: Proje
   return mapPath;
 };
 
-export const getSourceInfos = async (params: { stack: string, project: Project, basePath: string, versionHash: string }): Promise<SourceInfo[]> => {
+export const getSourceInfos = async (params: { stack: string, project: Project, basePath: string, versionHash: string }) => {
   const {
     stack, project, basePath, versionHash,
   } = params;
@@ -92,13 +92,11 @@ export const getSourceInfos = async (params: { stack: string, project: Project, 
         所以现在采用优先通过chunk-vendors过滤，再使用node_modules二次过滤
         */
     // if (sourceInfo.source.includes('node_modules')) continue;
+
+
     if (!sourceInfo.source) continue;
-    /* 排除非工具库的公用库 */
-    const isPublic = sourceInfo.source.includes('node_modules');
-    const isPublicUtils = sourceInfo.source.includes('node_modules/@4dst-saas');
-    const isPublicAndNoUtils = isPublic && !isPublicUtils;
-    if (isPublicAndNoUtils) continue;
-    if (isPublic) {
+
+    if (sourceInfo.source.includes('node_modules')) {
       const packageInfo = getPackageInfo(sourceInfo.source);
       const packageVersion = getPackageVersion({
         basePath, project, versionHash, sourcePath: sourceInfo.source,
@@ -109,6 +107,7 @@ export const getSourceInfos = async (params: { stack: string, project: Project, 
         version: packageVersion,
       };
     }
+
     sourceInfos.push(sourceInfo);
   }
   return sourceInfos;

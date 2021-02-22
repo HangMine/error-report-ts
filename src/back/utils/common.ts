@@ -1,8 +1,8 @@
 import md5 from 'js-md5';
-import { ServerLog } from '../typings';
+import { ServerLog } from 'src/typings';
 
 // eslint-disable-next-line import/prefer-default-export
-export const getErrorMd5 = (serverLog: ServerLog): string => {
+export const getErrorMd5 = (serverLog: ServerLog) => {
   const {
     stack, project = 'art', ref = 'master', env, versionHash,
   } = serverLog;

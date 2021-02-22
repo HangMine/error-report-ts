@@ -1,7 +1,7 @@
 
 import { readFileSync } from 'fs';
 import { resolve, join, sep } from 'path';
-import { Project } from '../typings';
+import { Project } from 'src/typings';
 
 interface PathParams {
   basePath: string,
@@ -15,18 +15,18 @@ interface Params extends PathParams {
   sourcePath: string
 }
 
-export const getYarnLockPath = ({ basePath, project, versionHash }: PathParams): string => {
+export const getYarnLockPath = ({ basePath, project, versionHash }: PathParams) => {
   const yarnLockPath = join(basePath, project, versionHash, 'js/yarn.lock');
   return yarnLockPath;
 };
 
-export const getYarnLockText = ({ basePath, project, versionHash }: TextParams): string => {
+export const getYarnLockText = ({ basePath, project, versionHash }: TextParams) => {
   const path = getYarnLockPath({ basePath, project, versionHash });
   const yarnLockText = readFileSync(resolve('projects', project, path), { encoding: 'utf-8' });
   return yarnLockText;
 };
 
-export const getPackageInfo = (sourcePath: string): { packageName: string, packagePath: string } => {
+export const getPackageInfo = (sourcePath: string) => {
   const arr = sourcePath.split('/');
   const [, packageName, ...packagePath] = arr;
   return {
@@ -36,7 +36,7 @@ export const getPackageInfo = (sourcePath: string): { packageName: string, packa
 
 export const getPackageVersion = ({
   sourcePath, basePath, project, versionHash,
-}: Params): string | null => {
+}: Params) => {
   try {
     const { packageName } = getPackageInfo(sourcePath);
     const yarnLockText = getYarnLockText({ basePath, project, versionHash });
